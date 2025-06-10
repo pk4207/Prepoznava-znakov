@@ -1,0 +1,195 @@
+Izpis (log) treniranja: 
+Mounted at /content/drive
+EMNIST podatki že obstajajo v: /content/drive/MyDrive/Colab_Data/emnist_data
+Nalagam EMNIST podatke...
+Mapiranje shranjeno/posodobljeno v: /content/drive/MyDrive/Colab_Data/emnist_byclass_mapping.npy
+Število razredov: 62
+Oblika učnih slik: (697932, 28, 28, 1), oznak: (697932, 62)
+
+Primeri slik iz učne množice (X_train):
+
+Model: "sequential_1"
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃ Layer (type)                    ┃ Output Shape           ┃       Param # ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ conv2d_3 (Conv2D)               │ (None, 28, 28, 32)     │           320 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ batch_normalization_4           │ (None, 28, 28, 32)     │           128 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ max_pooling2d_3 (MaxPooling2D)  │ (None, 14, 14, 32)     │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ conv2d_4 (Conv2D)               │ (None, 14, 14, 64)     │        18,496 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ batch_normalization_5           │ (None, 14, 14, 64)     │           256 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ max_pooling2d_4 (MaxPooling2D)  │ (None, 7, 7, 64)       │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ conv2d_5 (Conv2D)               │ (None, 7, 7, 128)      │        73,856 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ batch_normalization_6           │ (None, 7, 7, 128)      │           512 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ max_pooling2d_5 (MaxPooling2D)  │ (None, 3, 3, 128)      │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dropout_2 (Dropout)             │ (None, 3, 3, 128)      │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ flatten_1 (Flatten)             │ (None, 1152)           │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_2 (Dense)                 │ (None, 256)            │       295,168 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ batch_normalization_7           │ (None, 256)            │         1,024 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dropout_3 (Dropout)             │ (None, 256)            │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_3 (Dense)                 │ (None, 62)             │        15,934 │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+ Total params: 405,694 (1.55 MB)
+ Trainable params: 404,734 (1.54 MB)
+ Non-trainable params: 960 (3.75 KB)
+
+Začenjam treniranje modela. Najboljši model bo shranjen v: /content/drive/MyDrive/Colab_Data/emnist_cnn_robust_model.keras
+Epoch 1/50
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 42ms/step - accuracy: 0.7210 - loss: 0.9720
+Epoch 1: val_accuracy improved from -inf to 0.84376, saving model to /content/drive/MyDrive/Colab_Data/emnist_cnn_robust_model.keras
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 253s 45ms/step - accuracy: 0.7210 - loss: 0.9720 - val_accuracy: 0.8438 - val_loss: 0.4390 - learning_rate: 0.0010
+Epoch 2/50
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 41ms/step - accuracy: 0.8310 - loss: 0.4838
+Epoch 2: val_accuracy improved from 0.84376 to 0.85166, saving model to /content/drive/MyDrive/Colab_Data/emnist_cnn_robust_model.keras
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 236s 43ms/step - accuracy: 0.8310 - loss: 0.4838 - val_accuracy: 0.8517 - val_loss: 0.4075 - learning_rate: 0.0010
+Epoch 3/50
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 41ms/step - accuracy: 0.8404 - loss: 0.4515
+Epoch 3: val_accuracy improved from 0.85166 to 0.85570, saving model to /content/drive/MyDrive/Colab_Data/emnist_cnn_robust_model.keras
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 261s 43ms/step - accuracy: 0.8404 - loss: 0.4515 - val_accuracy: 0.8557 - val_loss: 0.3926 - learning_rate: 0.0010
+Epoch 4/50
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 42ms/step - accuracy: 0.8448 - loss: 0.4366
+Epoch 4: val_accuracy improved from 0.85570 to 0.85853, saving model to /content/drive/MyDrive/Colab_Data/emnist_cnn_robust_model.keras
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 237s 43ms/step - accuracy: 0.8448 - loss: 0.4366 - val_accuracy: 0.8585 - val_loss: 0.3813 - learning_rate: 0.0010
+Epoch 5/50
+5452/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 42ms/step - accuracy: 0.8475 - loss: 0.4245
+Epoch 5: val_accuracy did not improve from 0.85853
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 237s 43ms/step - accuracy: 0.8475 - loss: 0.4245 - val_accuracy: 0.8518 - val_loss: 0.4013 - learning_rate: 0.0010
+Epoch 6/50
+5452/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 41ms/step - accuracy: 0.8506 - loss: 0.4164
+Epoch 6: val_accuracy did not improve from 0.85853
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 233s 43ms/step - accuracy: 0.8506 - loss: 0.4164 - val_accuracy: 0.8564 - val_loss: 0.3813 - learning_rate: 0.0010
+Epoch 7/50
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 39ms/step - accuracy: 0.8514 - loss: 0.4132
+Epoch 7: val_accuracy did not improve from 0.85853
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 224s 41ms/step - accuracy: 0.8514 - loss: 0.4132 - val_accuracy: 0.8512 - val_loss: 0.3925 - learning_rate: 0.0010
+Epoch 8/50
+5452/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 39ms/step - accuracy: 0.8528 - loss: 0.4072
+Epoch 8: val_accuracy did not improve from 0.85853
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 224s 41ms/step - accuracy: 0.8528 - loss: 0.4072 - val_accuracy: 0.8474 - val_loss: 0.4095 - learning_rate: 0.0010
+Epoch 9/50
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 39ms/step - accuracy: 0.8548 - loss: 0.4020
+Epoch 9: val_accuracy improved from 0.85853 to 0.86027, saving model to /content/drive/MyDrive/Colab_Data/emnist_cnn_robust_model.keras
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 260s 41ms/step - accuracy: 0.8548 - loss: 0.4020 - val_accuracy: 0.8603 - val_loss: 0.3765 - learning_rate: 0.0010
+Epoch 10/50
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 39ms/step - accuracy: 0.8552 - loss: 0.3985
+Epoch 10: val_accuracy did not improve from 0.86027
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 220s 40ms/step - accuracy: 0.8552 - loss: 0.3985 - val_accuracy: 0.8588 - val_loss: 0.3775 - learning_rate: 0.0010
+Epoch 11/50
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 38ms/step - accuracy: 0.8564 - loss: 0.3957
+Epoch 11: val_accuracy improved from 0.86027 to 0.86045, saving model to /content/drive/MyDrive/Colab_Data/emnist_cnn_robust_model.keras
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 262s 40ms/step - accuracy: 0.8564 - loss: 0.3957 - val_accuracy: 0.8604 - val_loss: 0.3774 - learning_rate: 0.0010
+Epoch 12/50
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 40ms/step - accuracy: 0.8567 - loss: 0.3941
+Epoch 12: val_accuracy did not improve from 0.86045
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 226s 41ms/step - accuracy: 0.8567 - loss: 0.3941 - val_accuracy: 0.8529 - val_loss: 0.3919 - learning_rate: 0.0010
+Epoch 13/50
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 39ms/step - accuracy: 0.8571 - loss: 0.3912
+Epoch 13: val_accuracy did not improve from 0.86045
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 222s 41ms/step - accuracy: 0.8571 - loss: 0.3912 - val_accuracy: 0.8548 - val_loss: 0.3892 - learning_rate: 0.0010
+Epoch 14/50
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 39ms/step - accuracy: 0.8576 - loss: 0.3909
+Epoch 14: ReduceLROnPlateau reducing learning rate to 0.00020000000949949026.
+
+Epoch 14: val_accuracy did not improve from 0.86045
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 262s 41ms/step - accuracy: 0.8576 - loss: 0.3909 - val_accuracy: 0.8512 - val_loss: 0.4047 - learning_rate: 0.0010
+Epoch 15/50
+5452/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 39ms/step - accuracy: 0.8613 - loss: 0.3793
+Epoch 15: val_accuracy improved from 0.86045 to 0.86084, saving model to /content/drive/MyDrive/Colab_Data/emnist_cnn_robust_model.keras
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 264s 41ms/step - accuracy: 0.8613 - loss: 0.3793 - val_accuracy: 0.8608 - val_loss: 0.3713 - learning_rate: 2.0000e-04
+Epoch 16/50
+5452/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 40ms/step - accuracy: 0.8624 - loss: 0.3760
+Epoch 16: val_accuracy did not improve from 0.86084
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 225s 41ms/step - accuracy: 0.8624 - loss: 0.3760 - val_accuracy: 0.8597 - val_loss: 0.3749 - learning_rate: 2.0000e-04
+Epoch 17/50
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 39ms/step - accuracy: 0.8635 - loss: 0.3741
+Epoch 17: val_accuracy improved from 0.86084 to 0.86209, saving model to /content/drive/MyDrive/Colab_Data/emnist_cnn_robust_model.keras
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 224s 41ms/step - accuracy: 0.8635 - loss: 0.3741 - val_accuracy: 0.8621 - val_loss: 0.3711 - learning_rate: 2.0000e-04
+Epoch 18/50
+5452/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 39ms/step - accuracy: 0.8644 - loss: 0.3683
+Epoch 18: val_accuracy did not improve from 0.86209
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 259s 41ms/step - accuracy: 0.8644 - loss: 0.3683 - val_accuracy: 0.8617 - val_loss: 0.3712 - learning_rate: 2.0000e-04
+Epoch 19/50
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 39ms/step - accuracy: 0.8645 - loss: 0.3700
+Epoch 19: val_accuracy did not improve from 0.86209
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 225s 41ms/step - accuracy: 0.8645 - loss: 0.3700 - val_accuracy: 0.8600 - val_loss: 0.3743 - learning_rate: 2.0000e-04
+Epoch 20/50
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 39ms/step - accuracy: 0.8636 - loss: 0.3713
+Epoch 20: val_accuracy did not improve from 0.86209
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 222s 41ms/step - accuracy: 0.8636 - loss: 0.3713 - val_accuracy: 0.8590 - val_loss: 0.3772 - learning_rate: 2.0000e-04
+Epoch 21/50
+5452/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 39ms/step - accuracy: 0.8639 - loss: 0.3695
+Epoch 21: val_accuracy improved from 0.86209 to 0.86436, saving model to /content/drive/MyDrive/Colab_Data/emnist_cnn_robust_model.keras
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 222s 41ms/step - accuracy: 0.8639 - loss: 0.3695 - val_accuracy: 0.8644 - val_loss: 0.3644 - learning_rate: 2.0000e-04
+Epoch 22/50
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 39ms/step - accuracy: 0.8639 - loss: 0.3700
+Epoch 22: val_accuracy did not improve from 0.86436
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 224s 41ms/step - accuracy: 0.8639 - loss: 0.3700 - val_accuracy: 0.8585 - val_loss: 0.3778 - learning_rate: 2.0000e-04
+Epoch 23/50
+5452/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 42ms/step - accuracy: 0.8645 - loss: 0.3684
+Epoch 23: val_accuracy did not improve from 0.86436
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 241s 44ms/step - accuracy: 0.8645 - loss: 0.3684 - val_accuracy: 0.8592 - val_loss: 0.3732 - learning_rate: 2.0000e-04
+Epoch 24/50
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 42ms/step - accuracy: 0.8642 - loss: 0.3690
+Epoch 24: val_accuracy did not improve from 0.86436
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 259s 44ms/step - accuracy: 0.8642 - loss: 0.3690 - val_accuracy: 0.8626 - val_loss: 0.3678 - learning_rate: 2.0000e-04
+Epoch 25/50
+5452/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 43ms/step - accuracy: 0.8646 - loss: 0.3685
+Epoch 25: val_accuracy did not improve from 0.86436
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 268s 45ms/step - accuracy: 0.8646 - loss: 0.3685 - val_accuracy: 0.8612 - val_loss: 0.3726 - learning_rate: 2.0000e-04
+Epoch 26/50
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 41ms/step - accuracy: 0.8649 - loss: 0.3666
+Epoch 26: ReduceLROnPlateau reducing learning rate to 4.0000001899898055e-05.
+
+Epoch 26: val_accuracy did not improve from 0.86436
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 250s 43ms/step - accuracy: 0.8649 - loss: 0.3666 - val_accuracy: 0.8590 - val_loss: 0.3771 - learning_rate: 2.0000e-04
+Epoch 27/50
+5452/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 42ms/step - accuracy: 0.8658 - loss: 0.3627
+Epoch 27: val_accuracy did not improve from 0.86436
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 266s 44ms/step - accuracy: 0.8658 - loss: 0.3627 - val_accuracy: 0.8602 - val_loss: 0.3736 - learning_rate: 4.0000e-05
+Epoch 28/50
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 43ms/step - accuracy: 0.8660 - loss: 0.3636
+Epoch 28: val_accuracy did not improve from 0.86436
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 268s 45ms/step - accuracy: 0.8660 - loss: 0.3636 - val_accuracy: 0.8596 - val_loss: 0.3750 - learning_rate: 4.0000e-05
+Epoch 29/50
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 42ms/step - accuracy: 0.8656 - loss: 0.3645
+Epoch 29: val_accuracy did not improve from 0.86436
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 260s 44ms/step - accuracy: 0.8656 - loss: 0.3645 - val_accuracy: 0.8605 - val_loss: 0.3731 - learning_rate: 4.0000e-05
+Epoch 30/50
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 42ms/step - accuracy: 0.8655 - loss: 0.3651
+Epoch 30: val_accuracy did not improve from 0.86436
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 260s 44ms/step - accuracy: 0.8655 - loss: 0.3651 - val_accuracy: 0.8601 - val_loss: 0.3726 - learning_rate: 4.0000e-05
+Epoch 31/50
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 0s 42ms/step - accuracy: 0.8658 - loss: 0.3649
+Epoch 31: ReduceLROnPlateau reducing learning rate to 8.000000525498762e-06.
+
+Epoch 31: val_accuracy did not improve from 0.86436
+5453/5453 ━━━━━━━━━━━━━━━━━━━━ 241s 44ms/step - accuracy: 0.8658 - loss: 0.3649 - val_accuracy: 0.8597 - val_loss: 0.3740 - learning_rate: 4.0000e-05
+Epoch 31: early stopping
+Restoring model weights from the end of the best epoch: 21.
+
+Treniranje zaključeno. Najboljši model je bil shranjen v /content/drive/MyDrive/Colab_Data/emnist_cnn_robust_model.keras (če je bil ModelCheckpoint uspešen).
+
+
+Končna evaluacija modela na testnem nizu:
+3636/3636 ━━━━━━━━━━━━━━━━━━━━ 10s 3ms/step - accuracy: 0.8644 - loss: 0.3669
+Testna natančnost: 86.44%
+Testna izguba: 0.3644
+
+--- Celica 1 zaključena ---
